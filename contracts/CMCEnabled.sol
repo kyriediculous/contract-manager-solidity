@@ -1,6 +1,6 @@
 pragma solidity ^0.4.19;
 
-import './Ownable.sol';
+import './ContractProvider.sol';
 
 /**
  * Base class for every contract (DB, Controller, ALC,)
@@ -8,14 +8,18 @@ import './Ownable.sol';
 **/
 
 contract CMCEnabled {
-    address CMC;
+    address public CMC;
 
-    function setCMCAddress(address _CMC) external returns (bool success) {
+    modifier isCMCEnabled(bytes32 _name) {
+        if(CMC == 0x0 && msg.sender != ContractProvider(CMC).contracts(_name)) revert();
+        _;
+    }
+
+    function setCMCAddress(address _CMC) external {
         if (CMC != 0x0 && msg.sender != CMC) {
-            return false;
+            revert();
         } else {
             CMC = _CMC;
-            return true;
         }
     }
 

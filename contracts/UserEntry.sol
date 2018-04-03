@@ -1,15 +1,18 @@
 pragma solidity ^0.4.19;
 
-import './CMCPermissions.sol';
+import './CMCEnabled.sol';
 
+import './Controller.sol';
 /**
-* CMCPermissions includes:
+* INCLUDES:
 * CMCEnabled.sol
 * Ownable.sol
-* Contract Provider 
+* ContractProvider.sol
 * Permission modifier for entrypoint (UserEntry)
 **/
 
 contract UserEntry is CMCPermissions {
-
+  function setX(uint _x) external {
+    Controller(ContractProvider(CMC).contracts("Controller")).setX(_x);
+  }
 }

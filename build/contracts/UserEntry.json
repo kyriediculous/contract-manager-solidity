@@ -1,0 +1,203 @@
+{
+  "contractName": "UserEntry",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_CMC",
+          "type": "address"
+        }
+      ],
+      "name": "setCMCAddress",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6102638061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806321b523dd1461005157806341c0e1b5146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101fd57fe5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058200c86bb163b1163c89e10fced7241aff1ef9f93d43e636834b7652c99679968790029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806321b523dd1461005157806341c0e1b5146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101fd57fe5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058200c86bb163b1163c89e10fced7241aff1ef9f93d43e636834b7652c99679968790029",
+  "sourceMap": "181:41:6:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "181:41:6:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;254:225:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;485:94;;;;;;;;;;;;;;254:225;309:12;344:3;337;;;;;;;;;;;:10;;;;:31;;;;;365:3;;;;;;;;;;;351:17;;:10;:17;;;;337:31;333:140;;;391:5;384:12;;;;333:140;433:4;427:3;;:10;;;;;;;;;;;;;;;;;;458:4;451:11;;254:225;;;;:::o;485:94::-;541:3;;;;;;;;;;;527:17;;:10;:17;;;520:25;;;;;;568:3;;;;;;;;;;;555:17;;",
+  "source": "pragma solidity ^0.4.19;\n\nimport './CMCPermissions.sol';\n/**\n* INCLUDES:\n* CMCEnabled.sol\n* Ownable.sol\n* ContractProvider.sol\n* Permission modifier for entrypoint (UserEntry)\n**/\n\ncontract UserEntry is CMCPermissions {\n\n}\n",
+  "sourcePath": "/home/altstreet/Documents/contract-manager-solidity/contracts/UserEntry.sol",
+  "ast": {
+    "absolutePath": "/home/altstreet/Documents/contract-manager-solidity/contracts/UserEntry.sol",
+    "exportedSymbols": {
+      "UserEntry": [
+        304
+      ]
+    },
+    "id": 305,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 300,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "absolutePath": "/home/altstreet/Documents/contract-manager-solidity/contracts/CMCPermissions.sol",
+        "file": "./CMCPermissions.sol",
+        "id": 301,
+        "nodeType": "ImportDirective",
+        "scope": 305,
+        "sourceUnit": 176,
+        "src": "26:30:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 302,
+              "name": "CMCPermissions",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 175,
+              "src": "203:14:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CMCPermissions_$175",
+                "typeString": "contract CMCPermissions"
+              }
+            },
+            "id": 303,
+            "nodeType": "InheritanceSpecifier",
+            "src": "203:14:6"
+          }
+        ],
+        "contractDependencies": [
+          124,
+          175
+        ],
+        "contractKind": "contract",
+        "documentation": "INCLUDES:\nCMCEnabled.sol\nOwnable.sol\nContractProvider.sol\nPermission modifier for entrypoint (UserEntry)*",
+        "fullyImplemented": true,
+        "id": 304,
+        "linearizedBaseContracts": [
+          304,
+          175,
+          124
+        ],
+        "name": "UserEntry",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 305,
+        "src": "181:41:6"
+      }
+    ],
+    "src": "0:223:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/altstreet/Documents/contract-manager-solidity/contracts/UserEntry.sol",
+    "exportedSymbols": {
+      "UserEntry": [
+        304
+      ]
+    },
+    "id": 305,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 300,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "absolutePath": "/home/altstreet/Documents/contract-manager-solidity/contracts/CMCPermissions.sol",
+        "file": "./CMCPermissions.sol",
+        "id": 301,
+        "nodeType": "ImportDirective",
+        "scope": 305,
+        "sourceUnit": 176,
+        "src": "26:30:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 302,
+              "name": "CMCPermissions",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 175,
+              "src": "203:14:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CMCPermissions_$175",
+                "typeString": "contract CMCPermissions"
+              }
+            },
+            "id": 303,
+            "nodeType": "InheritanceSpecifier",
+            "src": "203:14:6"
+          }
+        ],
+        "contractDependencies": [
+          124,
+          175
+        ],
+        "contractKind": "contract",
+        "documentation": "INCLUDES:\nCMCEnabled.sol\nOwnable.sol\nContractProvider.sol\nPermission modifier for entrypoint (UserEntry)*",
+        "fullyImplemented": true,
+        "id": 304,
+        "linearizedBaseContracts": [
+          304,
+          175,
+          124
+        ],
+        "name": "UserEntry",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 305,
+        "src": "181:41:6"
+      }
+    ],
+    "src": "0:223:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xf25186b5081ff5ce73482ad761db0eb0d25abfbf",
+      "transactionHash": "0x313cdbd0430ca30e5dd149a405ec4b2546108be574d721b42de3dd88da2b71d0"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-04-02T02:38:57.420Z"
+}
