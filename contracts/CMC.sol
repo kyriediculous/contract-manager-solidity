@@ -3,7 +3,7 @@ pragma solidity ^0.4.19;
 import './CMCEnabled.sol';
 import './Ownable.sol';
 
-contract contractManager is Ownable {
+contract CMC is Ownable {
     mapping (bytes32 => address) public contracts;
 
     function addContract(bytes32 _name, address _address) external {
