@@ -13,12 +13,18 @@ contract CMC is Ownable {
     }
 
     function getContract(bytes32 _name) external view returns (address) {
-        return contracts[_name];
+      return contracts[_name];
     }
 
     function removeContract(bytes32 _name) external onlyOwner returns (bool) {
-        if (contracts[_name] == 0x0) return false;
-         contracts[_name] = 0x0;
-         return true;
+      require(contracts[_name] != 0x0);
+      CMCEnabled _CMCEnabled = CMCEnabled(contracts[_name]);
+      _CMCEnabled.kill();
+      contracts[_name] = 0x0;
+    }
+
+    function changeContractCMC(bytes32 _name, address _newCMC) external onlyOwner {
+      CMCEnabled _CMCEnabled = CMCEnabled(contracts[_name]);
+      _CMCEnabled.changeCMCAddress(_newCMC);
     }
 }

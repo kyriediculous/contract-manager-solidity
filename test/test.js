@@ -39,4 +39,25 @@ contract('CMC', () => {
       assert.equal(x, _x, "numbers should be equal")
     })
   })
+  it("Should remove Storage", () => {
+    return CMCinstance.removeContract("Storage").then(() => {
+      return CMCinstance.getContract.call("Storage")
+    }).then(res => {
+      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+    })
+  })
+  it("Should remove Controller", () => {
+    return CMCinstance.removeContract("Controller").then(() => {
+      return CMCinstance.getContract.call("Controller")
+    }).then(res => {
+      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+    })
+  })
+  it("Should remove UserEntry", () => {
+    return CMCinstance.removeContract("UserEntry").then(() => {
+      return CMCinstance.getContract.call("UserEntry")
+    }).then(res => {
+      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+    })
+  })
 })

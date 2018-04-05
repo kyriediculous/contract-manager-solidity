@@ -4,7 +4,7 @@ import './ContractProvider.sol';
 
 /**
  * Base class for every contract (DB, Controller, ALC,)
- * Once the CMC address being used by our newly added contract is set it can not be set again
+ * Once the CMC address being used by our newly added contract is set it can not be set again except by our CMC contract
 **/
 
 contract CMCEnabled {
@@ -21,6 +21,11 @@ contract CMCEnabled {
         } else {
             CMC = _CMC;
         }
+    }
+
+    function changeCMCAddress(address _newCMC) external {
+      require(CMC == msg.sender);
+      CMC = _newCMC;
     }
 
     function kill() external {
