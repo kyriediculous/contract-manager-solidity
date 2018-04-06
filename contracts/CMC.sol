@@ -6,7 +6,7 @@ import './Ownable.sol';
 contract CMC is Ownable {
     mapping (bytes32 => address) public contracts;
 
-    function addContract(bytes32 _name, address _address) external {
+    function addContract(bytes32 _name, address _address) onlyOwner external {
       CMCEnabled _CMCEnabled = CMCEnabled(_address);
       _CMCEnabled.setCMCAddress(address(this));
       contracts[_name] = _address;

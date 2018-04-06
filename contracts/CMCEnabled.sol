@@ -11,8 +11,12 @@ contract CMCEnabled {
     address public CMC;
 
     modifier isCMCEnabled(bytes32 _name) {
-        if(CMC == 0x0 && msg.sender != ContractProvider(CMC).contracts(_name)) revert();
+        if(CMC == 0x0 || msg.sender != ContractProvider(CMC).contracts(_name)) revert();
         _;
+    }
+
+    function() external {
+       revert();
     }
 
     function setCMCAddress(address _CMC) external {

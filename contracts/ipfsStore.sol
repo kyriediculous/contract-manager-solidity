@@ -33,7 +33,7 @@ contract ipfsStore is CMCEnabled {
         authorAddresses[_name] = _addr;
     }
 
-    function authorByName(bytes32 _name) external view isCMCEnabled("UserEntry") returns (bytes32, bytes32, bool) {
+    function authorByName(bytes32 _name) external view isCMCEnabled("ipfsLogic") returns (bytes32, bytes32, bool) {
         return (authors[authorAddresses[_name]].name,
                 authors[authorAddresses[_name]].email,
                 authors[authorAddresses[_name]].registered);
@@ -50,8 +50,8 @@ contract ipfsStore is CMCEnabled {
             uint _timestamp = now;
             bytes32 _IPPR = keccak256(_sender, _title, authors[msg.sender].name);
             uint id = books.push(Book(msg.sender, _title, _bookHash, _thumbHash, _timestamp, _IPPR))-1;
-            BookToOwner[id] = msg.sender;
-            OwnerBookCount[msg.sender]++; ///CONVERT TO SAFEMATH
+            BookToOwner[id] = _sender;
+            OwnerBookCount[_sender]++; ///CONVERT TO SAFEMATH
     }
 
     function bookCount() external view isCMCEnabled("ipfsLogic") returns (uint) {
@@ -64,7 +64,7 @@ contract ipfsStore is CMCEnabled {
         }
     }
 
-    function getBookByTitle(bytes32 _title) external view isCMCEnabled("UserEntry") returns (bytes32 bookHash, bytes32 thumbHash, bytes32 title, address author, bytes32 IPPR) {
+    function getBookByTitle(bytes32 _title) external view isCMCEnabled("ipfsLogic") returns (bytes32 bookHash, bytes32 thumbHash, bytes32 title, address author, bytes32 IPPR) {
         for (uint i = 0; i < books.length; i++) {
          if (_title == books[i].title) return (books[i].bookHash, books[i].thumbHash, books[i].title, books[i].author, books[i].IPPR);
         }
@@ -82,11 +82,11 @@ contract ipfsStore is CMCEnabled {
         return result;
     }
 
-    function getBooksByAuthorName(bytes32 _author) external view isCMCEnabled("UserEntry") returns (uint[20], bytes32, bytes32) {
+    function getBooksByAuthorName(bytes32 _author) external view isCMCEnabled("ipfsLogic") returns (uint[20], bytes32, bytes32) {
         address author = authorAddresses[_author];
         uint[] memory getBooks = getBooksByAuthor(author);
-        uint[20] books;
-        for (uint i = 0; i < getBooks.length; i ++) {
+        uint[20] memory books;
+        for (uint i = 0; i < getBooks.length; i++) {
            books[i] = getBooks[i];
         }
         return(books, authors[author].name, authors[author].email);
