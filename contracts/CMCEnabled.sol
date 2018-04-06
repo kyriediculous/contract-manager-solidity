@@ -11,7 +11,7 @@ contract CMCEnabled {
     address public CMC;
 
     modifier isCMCEnabled(bytes32 _name) {
-        if(CMC == 0x0 || msg.sender != ContractProvider(CMC).contracts(_name)) revert();
+        require(msg.sender == ContractProvider(CMC).contracts(_name));
         _;
     }
 
