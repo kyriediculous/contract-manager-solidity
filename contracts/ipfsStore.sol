@@ -48,8 +48,8 @@ contract ipfsStore is CMCEnabled {
 
     function addBook(bytes32 _bookHash, bytes32 _title, bytes32 _thumbHash, address _sender) external isCMCEnabled("ipfsLogic") {
             uint _timestamp = now;
-            bytes32 _IPPR = keccak256(_sender, _title, authors[msg.sender].name);
-            uint id = books.push(Book(msg.sender, _title, _bookHash, _thumbHash, _timestamp, _IPPR))-1;
+            bytes32 _IPPR = keccak256(_sender, _title, authors[_sender].name);
+            uint id = books.push(Book(_sender, _title, _bookHash, _thumbHash, _timestamp, _IPPR))-1;
             BookToOwner[id] = _sender;
             OwnerBookCount[_sender]++; ///CONVERT TO SAFEMATH
     }

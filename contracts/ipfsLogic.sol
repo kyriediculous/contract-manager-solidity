@@ -7,7 +7,7 @@ import './ipfsStore.sol';
 contract ipfsLogic is CMCEnabled {
 
     function newAuthor(bytes32 _name, bytes32 _email, address _addr) external {
-        bool registered;
+      bool registered;
       (,,registered) = ipfsStore(ContractProvider(CMC).contracts("ipfsStore")).getAuthor(_addr);
       require(!registered);
       ipfsStore(ContractProvider(CMC).contracts("ipfsStore")).newAuthor(_name, _email, _addr);

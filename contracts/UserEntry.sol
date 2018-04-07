@@ -42,6 +42,6 @@ contract UserEntry is CMCEnabled {
         uint[20] books,
         bytes32 name,
         bytes32 email) {
-          return ipfsLogic(ContractProvider(CMC).contracts("ipfsLogic")).getBooksByAuthorName(_name);
+          return ipfsLogic(ContractProvider(CMC).contracts("ipfsLogic")).getBooksByAuthor(_name);
     }
 }
