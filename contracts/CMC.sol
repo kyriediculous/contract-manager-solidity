@@ -27,4 +27,8 @@ contract CMC is Ownable {
       CMCEnabled _CMCEnabled = CMCEnabled(contracts[_name]);
       _CMCEnabled.changeCMCAddress(_newCMC);
     }
+
+    function kill() external onlyOwner {
+      selfdestruct(owner);
+    }
 }

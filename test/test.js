@@ -70,31 +70,40 @@ contract('CMC', (accounts) => {
       assert.equal(res[0][0], 0, "Book id not 0")
     })
   })
-})
-
-
-
-/*
-
+  it("Shoudl get a book by bookHash", () => {
+    return UserEntryinstance.getBookByHash(bookHash)
+    .then(res  => {
+      let _bookHash = convertHex(res[0]), _thumbHash = convertHex(res[1]), _title = convertHex(res[2]), _address = res[3]
+      assert.equal(bookHash, _bookHash, "Not the same book")
+      assert.equal(thumbHash, _thumbHash, "Wrong thumbnail")
+      assert.equal(title, _title, "Not the same title")
+      assert.equal(address, _address, "Not the same author")
+    })
+  })
   it("Should remove ipfsStore", () => {
-    return CMCinstance.removeContract("ipfsStore").then(() => {
-      return CMCinstance.getContract.call("ipfsStore")
-    }).then(res => {
-      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      return CMCinstance.removeContract("ipfsStore").then(() => {
+        return CMCinstance.getContract.call("ipfsStore")
+      }).then(res => {
+        assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      })
     })
-  })
   it("Should remove ipfsLogic", () => {
-    return CMCinstance.removeContract("ipfsLogic").then(() => {
-      return CMCinstance.getContract.call("ipfsLogic")
-    }).then(res => {
-      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      return CMCinstance.removeContract("ipfsLogic").then(() => {
+        return CMCinstance.getContract.call("ipfsLogic")
+      }).then(res => {
+        assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      })
     })
-  })
   it("Should remove UserEntry", () => {
-    return CMCinstance.removeContract("UserEntry").then(() => {
-      return CMCinstance.getContract.call("UserEntry")
-    }).then(res => {
-      assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      return CMCinstance.removeContract("UserEntry").then(() => {
+        return CMCinstance.getContract.call("UserEntry")
+      }).then(res => {
+        assert.equal(res, "0x0000000000000000000000000000000000000000", "Address should be 0x0")
+      })
     })
-  })
-  */
+  it("Should remove CMC", () => {
+      expect(() => {
+        return CMCinstance.kill()
+      }).to.not.throw();
+    })
+})
